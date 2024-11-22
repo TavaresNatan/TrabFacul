@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+        #homer{
+            width: 600px;
+        }
+        .lamp-div{
+            display:grid;
+            grid-column: auto;
+            align-items: center;
+            justify-content: center;
+        }
+        #btn{
+            padding: 16px;
+            cursor: pointer;
+            border:none;
+            background-color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="" id="homer">
+
+        <div class="lamp-div">
+            <img src="Img/lampdesl.png" id="lamp" onclick="Break()" onmouseover="ligarlamp()" onmouseout="desligarlamp()">
+            <button id="btn" onclick="Click()">Ligar/Desligar</button>
+
+        </div>
+
+    </div>
+    <script>
+        document.body.style.backgroundColor = "#222";
+        let ligada = false;
+        const lampada   = document.getElementById("lamp");
+        const homer     = document.getElementById("homer");
+
+        let quebrada = false;
+
+        function Click(){
+            if(quebrada === false){
+                ligada = ligada ? false: true;
+            console.log(ligada);
+
+            document.body.style.backgroundColor = ligada ? "#ddd":"#222";
+
+            lampada.src = ligada ? "Img/lamplig.png":"Img/lampdesl.png";
+            homer.src = ligada ? "Img/homer.gif":"";
+            }
+            
+        }
+        function ligarlamp(){
+            if(quebrada === false){
+
+                homer.src = "Img/homer.gif";
+            lampada.src = "Img/lamplig.png";
+            document.body.style.backgroundColor = "#ddd";
+            }
+        }
+        function desligarlamp(){
+            if(quebrada === false){
+                homer.src = "";
+            lampada.src = "Img/lampdesl.png";
+            document.body.style.backgroundColor = "#222";
+            }
+        }
+
+        function Break(){
+            quebrada = true;
+            lampada.src = "Img/lampqueb.png";
+            homer.src = "";
+            const funcao = document.getElementById("btn");
+            document.body.style.backgroundColor = "#222";
+            funcao.onclick = "";
+        }
+    </script>
+</body>
+</html>

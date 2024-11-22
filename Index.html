@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: "Courier New", Courier, monospace;
+        }
+        body{
+            min-height: 100vh;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .maindiv {
+            min-width: 25%; 
+            max-width: 25%;
+            background-color: #c24;
+            border-radius: 20px;
+        }
+        .up {
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            min-width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .up img {
+            padding: 5px;
+            margin-right: 40px;
+            max-width: 80px;
+            max-height: 80px;
+            border:none;
+            border: 2px solid white;
+            border-radius: 20px;
+        }
+        .up h1 {
+            color: white;
+        }
+        .down {
+            padding-top: 20px;
+            margin: 0 auto;
+            min-width: 100%;
+            display: flex;
+            border-radius: 20px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #eee;
+        }
+        .txt {
+            font-size: 20px;
+        }
+        .input {
+            min-width: 80%; 
+            max-width: 80%;
+            font-size: 18px;
+            padding:5px;
+            border: none;
+            border-bottom: 2px solid #c24;
+        }
+        .recsenha {
+            display: flex;
+        }
+        .link {
+            
+            padding-left: 3px;
+            color:#c24;
+            border:none;
+            border-bottom: 2px solid #c24;
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+        }
+        .buttons button {
+            font-size: 20px;
+            padding: 20px;
+            margin: 20px;
+        }
+        .b1 {
+            background-color: #eee;
+            border:none;
+            color:#c24;
+            border: 2px solid #c24;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .b2 {
+            background-color: #c24;
+            border:none;
+            color:#eee;
+            border: 2px solid #c24;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .b2:hover{
+            background-color: #c24;
+            border:none;
+            color:#eee;
+            padding-top: 10px;
+            border: 2px solid #c24;
+        }
+
+    </style>
+    <title>Tela de Login</title>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="up">
+            <img src="userimage.png" alt="Imagem do usuário">
+            <h1 id="mdlogin">Login</h1>
+        </div>
+        <div class="down">
+            <p class="txt">Usuário:</p>
+            <input type="text" class="input" id="usuario">
+            <p class="txt">Senha:</p>
+            <input type="text" class="input" id="senha">
+            <div class="recsenha"><p class="text">Esqueceu sua senha?</p><p class="link">Clique aqui.</p></div>
+            <p id="errado" style="color:red"></p>
+            <div class="buttons"><button class="b1">Voltar</button><button class="b2" onclick="Entrar()">Entrar</button></div>
+        </div>
+    </div>
+
+    <script>
+        const usuario = "uniasselvi";
+        const senha = "123";
+
+
+        function Entrar(){
+            console.log("entrou");
+            const usuariotxt = document.getElementById("usuario");
+            const senhatxt = document.getElementById("senha");
+            if(usuariotxt.value === usuario && senhatxt.value === senha){
+                console.log("funfou");
+                window.location.href = 'lamp.html';
+            }
+            else{
+                console.log("errado");
+                const perr = document.getElementById("errado");
+                perr.innerText = "Usuario ou senha incorretos!"
+            }
+        }
+    </script>
+</body>
+</html>
